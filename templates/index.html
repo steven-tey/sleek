@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sleek Domains - Daily newsletter of brandable domains</title>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static',filename='assets/logo.svg') }}"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static',filename='assets/logo.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static',filename='assets/logo.png') }}">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--  Essential META Tags -->
+
+        <meta itemprop="name" content="Sleek Domains - Daily newsletter of brandable domains">
+        <meta itemprop="description" content="Sleek Domains is a daily newsletter of hand-picked domains delivered straight to your inbox.">
+        <meta itemprop="image" content="{{ url_for('static',filename='assets/thumbnail.png') }}">
+        <meta name="description" content="Sleek Domains is a daily newsletter of hand-picked domains delivered straight to your inbox.">
+        <meta property="og:title" content="Sleek Domains - Daily newsletter of brandable domains">
+        <meta property="og:description" content="Sleek Domains is a daily newsletter of hand-picked domains delivered straight to your inbox.">
+        <meta property="og:image" content="{{ url_for('static',filename='assets/thumbnail.png') }}">
+        <!--<meta property="og:url" content="https://www.sleek.domains/">-->
+        <meta property="og:type" content="website">
+
+
+        <!--  Non-Essential, But Recommended -->
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@SleekDomains" />
+        <meta name="twitter:creator" content="@Vinrob">
+        <meta name="twitter:title" content="Sleek Domains - Daily newsletter of brandable domains">
+        <meta name="twitter:description" content="Sleek Domains is a daily newsletter of hand-picked domains delivered straight to your inbox.">
+        <!--<meta name="twitter:image" content="https://www.sleek.domains/static/assets/thumbnail.png">>
+
+        <!--  CSS Stylesheets -->
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/slick.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/slick-theme.css') }}"/>
+        <link rel="stylesheet" href="https://use.typekit.net/qae7fcj.css">
+
+        <!--  JavaScript Stuff -->
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            
+        <style type="text/css">
+
+            html, body {
+                margin:0;
+                padding:0;
+            }
+
+            body {
+                font-family: soleil,sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            h1, h2, h4 {
+                font-family: soleil,sans-serif;
+                font-weight: 600;
+                font-style: normal;
+            }
+
+            /* main */
+            header {
+                height: 450px;
+                text-align: center;
+            }
+
+            header img {
+                height: 50px; 
+                margin-top: -100px;
+                margin-left: 10%;
+                float: left;
+            }
+
+            header h1 {
+                font-size: calc(30px + 2vw);
+                color: #000;
+                margin-top: 150px;
+                display: block;
+            }
+
+            header h5 {
+                font-size: calc(15px + 0.5vw);
+                font-weight: 400;
+                color: #000;
+                margin-top: -20px
+            }
+
+            header p {
+                font-size: calc(10px + 0.5vw);
+                font-weight: 400;
+                color: #000;
+                opacity: 0.7;
+            }
+
+            .emailInput {
+                background-color: #fff;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+                border-radius: 6px;
+                display: inline-flex; 
+                justify-content: space-between;
+                width: 35%;
+                outline: none;
+                overflow: hidden;
+            }
+            .formInputs {
+                font-family: soleil,sans-serif;
+                font-weight: 400;
+                font-size: calc(12px + 0.5vw);
+                margin: 25px;
+                width: 70%;
+                border: none;
+                outline: none;
+            }
+            .formInputs::placeholder {
+                color: #000;
+                opacity: 0.6
+            }
+            .successWords {
+                font-family: soleil,sans-serif;
+                font-weight: 400;
+                font-size: calc(12px + 0.5vw);
+                margin: 25px;
+                width: 100%;
+                color: #000;
+                opacity: 1;
+                border: none;
+                outline: none;
+                display: none;
+                text-align: center;
+            }
+            .subButton {
+                padding: 3% 5%;
+                margin: 10px;
+                cursor: pointer;
+                border: solid 2px #000;
+                border-radius: 10px;
+                outline: none;
+                background-color: #000;
+                color: #fff;
+                font-family: soleil,sans-serif;
+                font-weight: 500; 
+                font-size: calc(12px + 0.5vw);
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+                transition: all 0.4s ease 0s;
+            }
+            .subButton:hover {
+                transform: scale(1.03);
+            }
+            
+            @media screen and (max-width: 1000px) {
+                .emailInput {
+                    display: inline-block;
+                    width: 45%;
+                }
+                .formInputs {
+                    text-align: center;
+                    margin-bottom: 10px;
+                    width: 80%;
+                }
+                .successWords {
+                    width: 90%;
+                }
+                .subButton {
+                    width: 80%;
+                }
+            } @media screen and (max-width: 800px) {
+                .emailInput {
+                    display: inline-block;
+                    width: 60%;
+                }
+            } @media screen and (max-width: 500px) {
+                .emailInput {
+                    display: inline-block;
+                    width: 80%;
+                }
+                .successWords {
+                    width: 85%;
+                }
+            }
+            .hamburger { 
+                float: right;
+                margin-right: 10%;
+                margin-left: -15%;
+                top: -85px;
+                display: none;
+                z-index: 99;
+            }
+
+            .hamburger .line{
+            width: 30px;
+            height: 3px;
+            background-color: #000;
+            display: block;
+            margin: 7px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            }
+
+            .hamburger:hover{
+            cursor: pointer;
+            }
+
+            #hamburger-9{
+            position: relative;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            }
+
+            #hamburger-9.is-active{
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            }
+
+            #hamburger-9:before{
+            content: "";
+            position: absolute;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            border: 3px solid transparent;
+            top: calc(50% - 25px);
+            left: calc(50% - 25px);
+            border-radius: 100%;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            }
+
+            #hamburger-9.is-active:before{
+            border: 3px solid #000;
+            }
+
+            #hamburger-9.is-active .line{
+            width: 30px;
+            }
+
+            #hamburger-9.is-active .line:nth-child(2){
+            opacity: 0;
+            }
+
+            #hamburger-9.is-active .line:nth-child(1){
+            -webkit-transform: translateY(10px);
+            -ms-transform: translateY(10px);
+            -o-transform: translateY(10px);
+            transform: translateY(10px);
+            }
+
+            #hamburger-9.is-active .line:nth-child(3){
+            -webkit-transform: translateY(-10px) rotate(90deg);
+            -ms-transform: translateY(-10px) rotate(90deg);
+            -o-transform: translateY(-10px) rotate(90deg);
+            transform: translateY(-10px) rotate(90deg);
+            }
+
+            .mobileMenu{
+                position: fixed; 
+                display: block;
+                margin-top: -50px; 
+                margin-left: -50px; 
+                background-color: #fff; 
+                width: 0%; 
+                height: 0%; 
+                right: -50%; 
+                top: -10%; 
+                border-radius: 50%; 
+                z-index: 9;
+                transition: all .3s ease;
+                visibility: hidden;
+            }
+            .mobileMenu.expanded{
+                width: 200%; 
+                height: 150%; 
+            }
+
+            #header-logo-mobile {
+                display: none;
+            }
+
+            .mobile-card {
+                display: none;
+            }
+
+            .row {
+                padding: 50px;
+                background-color: #000; 
+                display: flex;
+            }
+            .column {
+                flex: 50%;
+                padding: 5%;
+            }
+            .demoCard {
+                width: 100%; 
+                cursor: url('/static/assets/special-cursor-bigger.svg'), auto;
+            }
+
+            @media screen and (max-width: 642px) {
+                .header-socials{
+                    visibility: hidden;
+                }
+                #header-logo {
+                    display: none;
+                }
+                #header-logo-mobile {
+                    display: block;
+                }
+                .hamburger { 
+                    display: block;
+                }
+                .mobileMenu{
+                    visibility: visible;
+                }
+                .mobile-card{
+                    display: block
+                }
+                .row{
+                    flex-wrap: wrap;
+                }
+            }
+
+            ul.features {
+                text-align: left; 
+                margin: 30px 10% 50px 10%;
+            }
+
+            ul.features > li {
+                margin-bottom: 20px;
+                padding-left: 15%;
+                margin-left: -25%;
+                list-style: none;
+                background-repeat: no-repeat;
+                background-position: left right;
+                background-size: 22px;
+                color: #fff;
+                font-family: soleil,sans-serif;
+                font-weight: 400;
+                font-size: calc(12px + 0.5vw);
+                background-image: url({{ url_for('static',filename='assets/check-top.svg') }});
+            }
+
+            .slider {
+                width: 60%;
+                margin: 100px auto 50px auto;
+                padding: 50px auto;
+            }
+            .slick-prev:before,
+            .slick-next:before {
+                color: black;
+            }
+            .slick-slide {
+            transition: all ease-in-out .3s;
+                opacity: .2;
+            }
+            .slick-active {
+                opacity: .5;
+                transform: scale(1.05);
+            }
+            .slick-current {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            .testimonial {
+                max-width: 60%;
+                padding: 10px 10% 10px 10%; 
+                margin: 30px 10% 50px 10%; 
+                text-align: center;
+                outline: none;
+                overflow: hidden;
+            }
+            .testimonial h2 {
+                font-size: calc(15px + 0.5vw);
+            }
+
+            @media screen and (max-width: 642px) {
+                .slider{
+                    width: 80%;
+                }
+                .testimonial {
+                    max-width: 80%;        
+                    padding: 10px 5% 10px 5%; 
+                    margin: 30px 5% 50px 5%; 
+                }
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <!-- Top Banner-->
+        <div style="text-align: center; height: 50px; width: 100%; padding-top: calc(15px - 1vw); padding-bottom: 10px; top: 0; z-index: 10000; background-color: #000; font-weight: 600; color: #ffffff;">
+            <p id="demo" style="font-size: calc(10px + 0.5vw)"></p>
+        </div>
+        <!--Header-->
+        <header>
+            <a href="/"><img id="header-logo" src="{{ url_for('static',filename='assets/full_logo.svg') }}"></img></a>
+            <a href="/"><img id="header-logo-mobile" src="{{ url_for('static',filename='assets/logo.svg') }}"></img></a>
+            <div class="hamburger" id="hamburger-9">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+            <a href="https://twitter.com/SleekDomains" target="_blank"><img  class="header-socials" style="float: right; margin-right: 15%; height: 35px; margin-top: -85px;" src="{{ url_for('static',filename='assets/twitter.svg') }}"></img></a>
+            <a href="mailto:hello@sleek.domains"><img class="header-socials" style="float: right; margin-right: 10%; height: 35px; margin-top: -85px;" src="{{ url_for('static',filename='assets/mail.svg') }}"></img></a>
+            <h1>Sleek Domains</h1>
+            <h5>Daily newsletter of brandable domains</h5>
+            <form id="email-form" class="emailInput">
+                <input class="formInputs" id="email" type="email" required placeholder="Your email address">
+                <button class="subButton" type="submit" onclick="subscribe()">Subscribe</button>
+                <p class="successWords">Awesome! Don't forget to check your email to confirm your subscription! 🎉</p>
+            </form>
+            <p>No spam, ever. Just two brandable domains a day.</p>
+        </header>
+        <div class="mobileMenu">
+            <a href="https://twitter.com/SleekDomains" target="_blank"><img style="display: block; height: 50px; margin-top: 400px; margin-left: 47.5%;" src="{{ url_for('static',filename='assets/twitter.svg') }}"></img></a>
+            <a href="mailto:hello@sleek.domains"><img style="display: block; height: 50px; margin-top: 50px; margin-left: 47.5%;" src="{{ url_for('static',filename='assets/mail.svg') }}"></img></a>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <h2 style="color: #fff">Name an idea you already have or get inspired to start something new.</h2>
+                <ul class="features">
+                    <li>Hundreds of curated domains sold to entrepreneurs, designers, developers, and makers</li>
+                    <li>Domains pushed to your Namecheap account within 24 hours (no escrow, no nonsense)</li>
+                    <li>Priced way below market value for only 24 hours (or until sold)</li>
+                </ul>
+            </div>
+            <div class="column">
+                <a href="https://mailchimp.com" target="_blank"><img data-tilt data-tilt-perspective="1500" data-tilt-glare="true" class="demoCard" src="{{ url_for('static',filename='assets/demo.svg') }}"></img></a>
+                <center><a class="mobile-card" href="https://mailchimp.com" target="_blank"><img style="margin: -40px auto;" src="{{ url_for('static',filename='assets/view-example-mailchimp.svg') }}"></img></a></center>
+            </div>
+        </div>
+
+        <section class="responsive slider" style="outline: none">
+            <div class="testimonial">
+                <h2>"Sleek Domains is probably the best curated domain newsletter out there."</h2>
+                <p style="opacity: 0.8; font-size: calc(12px + 0.3vw); font-weight: 500; margin-top: -10px">DHH | Founder, Basecamp</p>
+            </div>
+            <div class="testimonial">
+                <h2>"Sleek Domains is probably the best curated domain newsletter out there."</h2>
+                <p style="opacity: 0.8; font-size: calc(12px + 0.3vw); font-weight: 500; margin-top: -10px">DHH | Founder, Basecamp</p>
+            </div>
+            <div class="testimonial">
+                <h2>"Sleek Domains is probably the best curated domain newsletter out there."</h2>
+                <p style="opacity: 0.8; font-size: calc(12px + 0.3vw); font-weight: 500; margin-top: -10px">DHH | Founder, Basecamp</p>
+            </div>
+            <div class="testimonial">
+                <h2>"Sleek Domains is probably the best curated domain newsletter out there."</h2>
+                <p style="opacity: 0.8; font-size: calc(12px + 0.3vw); font-weight: 500; margin-top: -10px">DHH | Founder, Basecamp</p>
+            </div>
+        </section>
+
+        <!--Footer-->
+        <footer style="background-color: #000; text-align: center; padding-top: 50px; padding-bottom: 100px">
+            <a href="/" style="text-decoration: none;">
+                <img class="footer-logo" src="{{ url_for('static',filename='assets/logo-dark-variant.svg') }}" 
+                    style="text-align: center; height: 60px; margin-top: 50px; margin-bottom: -50px;"></img>
+                <h1 style="text-align: center; color: #fff; padding-top: 50px;">Sleek Domains</h1>
+            </a>
+            <div style="margin-top: 50px;">
+                <a href="https://twitter.com/SleekDomains" target="_blank"><img style="display: inline-block; margin-right: 5%; height: 35px;" src="{{ url_for('static',filename='assets/twitter-dark.svg') }}"></img></a>
+                <a href="mailto:hello@sleek.domains"><img style="display: inline-block; margin-left: 5%; height: 35px;" src="{{ url_for('static',filename='assets/mail-dark.svg') }}"></img></a>     
+            </div>
+            <p style="color: #fff; margin-top: 50px;">Curated by <a href="https://twitter.com/Vinrob" target="_blank" style="color: #fff; text-decoration: none;">@Vinrob</a></p>
+        </footer>
+
+        <script src="{{ url_for('static',filename='script/slick.js') }}" type="text/javascript" charset="utf-8"></script>
+        <script src="{{ url_for('static',filename='script/tilt.jquery.js') }}" type="text/javascript" charset="utf-8"></script>
+
+        <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("Sep 7, 2020 15:00:00").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById("demo").innerHTML = "We're sending out the first batch of domains in " + days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s";
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "The first batch of domains have been sent out!";
+            }
+            }, 1000);
+
+            // Hamburger Side Menu
+            $(document).ready(function(){
+                $(".hamburger").click(function(){
+                    $(this).toggleClass("is-active");
+                    $(".mobileMenu").toggleClass("expanded");
+                });
+            });
+
+            function subscribe() {
+                if ($('#email-form')[0].checkValidity()) {
+                    var today = new Date().toLocaleDateString('en-GB', {  
+                        day : 'numeric',
+                        month : 'short',
+                        year : 'numeric'
+                    })
+                    $.post( "/subscribe", 
+                    {
+                        email: $("#email").val(),
+                        time: today
+                    });
+                    $(".formInputs").css({"display": "none"})
+                    $(".subButton").css({"display": "none"})
+                    $(".successWords").css({"display": "block"})
+                }
+            }
+            $("#email-form").submit(function(e) {
+                e.preventDefault();
+            });
+
+            // Center Carousel 
+            $('.responsive').slick({
+            infinite: true,
+            speed: 500,
+            centerMode: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            arrows: true,
+            autoplaySpeed: 3000,
+            responsive: [
+                {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+                }
+            ]
+            });
+
+        </script>
+
+    </body>
+
+</html>
